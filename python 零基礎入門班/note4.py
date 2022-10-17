@@ -137,6 +137,7 @@ print(list)         #[5,1,2,3]
 
 串列名稱2 = sorted(串列名稱1,reverse=True)    #sorted(將指定的串列排序) 
 #串列名稱1代表要排序的串列，串列名稱2代表排序後的另一個串列。 reverse可以設定順序，True由大到小排序，False則又小到大排序，省略時預設為False。
+#sorted()將指定串列排序，原串列不改變
 ex:
 list1=[3,2,1,5]
 list2=sorted(list1,reverse=True)     #將list1的值傳入list2並排序
@@ -165,7 +166,7 @@ for i in numbers:
     if i % 2 != 0:
         odd_numbers.append(i)
 print(odd_numbers)
-"""
+
 fruits = ["香蕉","蘋果","橘子","鳳梨","西瓜"]
 while True:
     fruit = input("請輸入喜歡的水果(Enter 結束):")        
@@ -179,3 +180,38 @@ while True:
         # print("%s在串列中的第%d項"%(str(fruit),n+1))
         print("在串列中的第"+ str(n+1) +"項")
 
+grades = []
+total = 0
+average = 0
+i = 1
+while (i <= 5):
+    grade = int(input("請輸入第%d同學的成績:"%(i)))
+    i += 1 
+    grades.append(grade)
+for i in grades:
+    total += i
+    average = total / len(grades)
+print("本班總成績:%d分，平均成績:%.2f分"%(total,average))
+
+numbers = [1,2,3,4,2,7,3,2,3]
+for i in numbers:
+    n = numbers.count(i)
+    if n > 1:
+        numbers.remove(i)
+print(numbers)
+
+grades = []
+names = []
+while True:
+    for i in range(1,4):
+        name = str(input("請輸入第%d位同學的姓名:"%(i)))
+        grade = int(input("請輸入第%d位同學的成績:"%(i)))
+        grades.append(grade)
+        names.append(name)
+    if grades[0] > grades[1] and grades[0] > grades[2]:
+        print("姓名:%s  成績:%d"%(names[0],grades[0]))
+    elif grades[1] > grades[0] and grades[1] > grades[2]:
+        print("姓名:%s  成績:%d"%(names[1],grades[1]))
+    elif grades[2] > grades[0] and grades[2] > grades[1]:
+        print("姓名:%s  成績:%d"%(names[2],grades[2]))
+"""
