@@ -122,4 +122,4 @@ if result > 2:
     print(str(calc)+" 不是質數")
 else:
     print(str(calc)+" 是質數")  
-"""     
+"""  
