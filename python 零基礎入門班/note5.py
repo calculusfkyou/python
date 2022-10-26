@@ -76,4 +76,38 @@ print()       #{}  #空字典
 dict = {"香蕉":20, "蘋果":50, "橘子":30}
 del dict    #刪除dict字典
 print(dict)  #產生錯誤，dict字典不存在
+
+#字典進階用法:(dict = {"joe":5,"mary":8})
+取得字典元素個數: len(dict)
+ex:
+n = len(dict)  
+n = 2
+
+複製字典: dict.copy()
+ex:
+dict2 = dict.copy()
+dict2 = {"joe":5,"mary":8}
+
+檢查 鍵 是否存在: 鍵 in dict
+ex:
+b = "joe" in dict
+b = True
+
+取得以 鍵-值 組為元素的組合: dict.items()
+ex:
+item = dict.items()
+item = [("joe":5),("mary":8)]
+
+取得以 鍵 為元素的組合: dict.keys()
+ex:
+key = dict.keys()
+key = ["joe","mary"]
+
+與get()類似，若 鍵 不存在就以參數的 鍵-值 建立新元素: dict.setdefault(鍵,值)
+n = dict.setdefault("joe")
+n = 5
+
+取得以 值 為元素的組合: dict.values()
+value = dict.values()
+value = [5,8]
 """
