@@ -110,4 +110,41 @@ n = 5
 取得以 值 為元素的組合: dict.values()
 value = dict.values()
 value = [5,8]
+
+in 功能:
+in 功能會檢查字典中的 鍵 是否存在，如果 鍵 存在 就傳回True ，鍵 不存在就傳回 False
+#語法為: 鍵 in 字典名稱
+ex:
+dict = {"香蕉":20, "蘋果":50, "橘子":30}
+print("香蕉" in dict)    #True
+print("鳳梨" in dict)    #False
+
+EXERCISE:
+dict = {"電視":15000, "冰箱":23000, "冷氣":28000}
+device = input("輸入電器名稱:")
+if device in dict:
+    print(device,"的價格為",str(dict[device]))
+else: 
+    price = input("輸入電器價格:")
+    dict[device] = price
+    print("字典內容",str(dict)) 
+
+keys()功能可以取得字典中所有 鍵  ，資料型態為dict_keys
+ex:
+dict = {"香蕉":20, "蘋果":50, "橘子":30}
+key = dict.keys()
+print(key)    #dict_keys(['香蕉', '蘋果', '橘子'])
+雖然dict_keys資料型看起來像串列，但它不能以索引方式取的元素值:
+dict = {"香蕉":20, "蘋果":50, "橘子":30}
+key = dict.keys()
+print(key[0])      #產生錯誤，不能以索引方式取得元素值
+必須將dict_keys資料型態以list函式轉換為串列才能取得元素值:
+dict = {"香蕉":20, "蘋果":50, "橘子":30}
+key = list(dict.keys())
+print(key[0])   #香蕉
+
+values()功能可取的字典中所有的 值 ，資料型態為dict_values。用法和keys()完全相同，不再贅述。
+
+items()功能可同時取的 鍵-值 組成的組合，資料型態為dict_items。
+
 """
