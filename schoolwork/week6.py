@@ -49,7 +49,7 @@ while True:                         # machine cycle 機器循環
         if Rs2 == 0:
             register[Rd] = register[Rd]
         elif Rs2 == 1:
-            register[Rd] = register[Rd]
+            register[Rd] = register[Rd]/
     elif opcode==13:
         if register[0]!= register[Rd]:
             pc = Ms
