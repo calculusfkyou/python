@@ -4,7 +4,8 @@ while True:
     f = eval(input())
     a = int(math.log(abs(f),2))
     print(a)
-
+"""
+"""
 import math
 while True:
     f = eval(input())
@@ -16,7 +17,8 @@ while True:
         print(value[0],end="")
     print(end="")
     print()
-
+"""
+"""
 import math
 while True:
     f = eval(input())

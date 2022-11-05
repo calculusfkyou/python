@@ -1,3 +1,4 @@
+#簡單計算機指令表
 def main():
     memory=[0 for i in range(254)]      # 記憶體 254 words
     register=[0 for i in range(16)]     # 暫存器 16 個
