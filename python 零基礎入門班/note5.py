@@ -147,4 +147,17 @@ values()功能可取的字典中所有的 值 ，資料型態為dict_values。�
 
 items()功能可同時取的 鍵-值 組成的組合，資料型態為dict_items。
 
+setdefault 功能:
+與get雷同，但get功能不會改變字典內容；setdefault可能改變字典內容。
+#語法為:字典名稱.setdefault(鍵[,預設值]
+    沒有傳入預設值， 鍵 存在，返回鍵對應的值，字典沒有改變
+    沒有傳入預設值， 鍵 不存在，返回None，字典加入元素 鍵:None
+    有傳入預設值， 鍵 存在，返回鍵對應的值，字典沒有改變
+    有傳入預設值， 鍵 不存在，返回鍵預設值，字典加入元素 鍵:預設值
+ex:
+dict={"香蕉":20, "蘋果":50, "橘子":30}
+n=dict.setdefault("蘋果")    #n=50, dict未改變
+n=dict.setdefault("蘋果", 100)   #n=50, dict未改變
+n=dict.setdefault("鳳梨")    #n=None, dict={"香蕉":20, "蘋果":50, "橘子":30ㄝ, "鳳梨":None}
+n=dict.setdefault("鳳梨", 100)    #n=None, dict={"香蕉":20, "蘋果":50, "橘子":30ㄝ, "鳳梨":100}
 """
