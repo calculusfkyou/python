@@ -159,5 +159,5 @@ dict={"香蕉":20, "蘋果":50, "橘子":30}
 n=dict.setdefault("蘋果")    #n=50, dict未改變
 n=dict.setdefault("蘋果", 100)   #n=50, dict未改變
 n=dict.setdefault("鳳梨")    #n=None, dict={"香蕉":20, "蘋果":50, "橘子":30ㄝ, "鳳梨":None}
-n=dict.setdefault("鳳梨", 100)    #n=None, dict={"香蕉":20, "蘋果":50, "橘子":30ㄝ, "鳳梨":100}
+n=dict.setdefault("鳳梨", 100)    #n=None, dict={"香蕉":20, "蘋果":50, "橘子":30, "鳳梨":100}
 """
