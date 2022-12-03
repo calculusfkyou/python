@@ -6,7 +6,7 @@ positions=[0]*8
 
 def plotBoard(positions,bs):
     for i in positions:    # add code to produce the 8 x 8 plot
-        board=["*"]*8
+        board=["*"]*bs
         board[i]="Q"
         for j in board:
             print(j,end="")
