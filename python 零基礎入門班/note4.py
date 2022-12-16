@@ -32,11 +32,11 @@ print(list[0])  #9
 
 for迴圈讀取串列:
 for 變數 in 串列:
-    程式區塊
+	程式區塊
 ex:
 list = ["香蕉", "蘋果", "橘子"]
 for s in list:
-    print(s, end=",")    #執行結果為:香蕉,蘋果,橘子,
+	print(s, end=",")    #執行結果為:香蕉,蘋果,橘子,
 
 取得串列長度:
 scores=[1,2,3]
@@ -45,20 +45,20 @@ print(len(scores))   #3
 for...range迴圈讀取串列:
 score=[1,2,3]
 for i in range(len(score)):    #即 for i in range(3)
-    print(score[i])
+	print(score[i])
 
 串列搜尋與計次:
-    index()搜尋(第幾個):
-    索引值 = 串列名稱.index(串列元素)
-    list = ["香蕉","蘋果","橘子"]
-    n = list.index("蘋果")    #n=1
-    m = list.index("梨子")    #ValueError: "梨子" is not on list
+	index()搜尋(第幾個):
+	索引值 = 串列名稱.index(串列元素)
+	list = ["香蕉","蘋果","橘子"]
+	n = list.index("蘋果")    #n=1
+	m = list.index("梨子")    #ValueError: "梨子" is not on list
 
-    count()計算次數(出現次數):
-    次數=串列名稱.count(串列元素)
-    list = ["香蕉","蘋果","橘子"]
-    n = list.count("橘子")    #n=1
-    m = list.count("梨子")    #m=0
+	count()計算次數(出現次數):
+	次數=串列名稱.count(串列元素)
+	list = ["香蕉","蘋果","橘子"]
+	n = list.count("橘子")    #n=1
+	m = list.count("梨子")    #m=0
 
 串列元素新增和刪除:
 串列名稱.append(元素值)   #append()是將元素加在串列最後面
@@ -79,11 +79,11 @@ total = []
 day = 1
 deposit = sum = 0
 while (day <= 7):
-    deposit = int(input("請輸入第%d天的存款"%(day)))
-    day += 1
-    total.append(deposit)
+	deposit = int(input("請輸入第%d天的存款"%(day)))
+	day += 1
+	total.append(deposit)
 for i in total:
-    sum += i
+	sum += i
 print("存款總和:%d元"%(sum))
 
 刪除串列元素:
@@ -114,13 +114,13 @@ print(list2)    #[1,3,5,6]
 EXERCISE:
 colors = ['紅', '橙', '黃', '綠', '藍']
 while True:
-    color = input("請輸入要刪除的顏色(Enter 結束):")
-    if color == "":
-        break
-    n = colors.count(color)
-    if n > 0:
-        colors.remove(color)
-    print("顏色有:",colors)
+	color = input("請輸入要刪除的顏色(Enter 結束):")
+	if color == "":
+		break
+	n = colors.count(color)
+	if n > 0:
+		colors.remove(color)
+	print("顏色有:",colors)
 
 串列排序:
 串列名稱.sort()    #sort()將指定的串列由小到大排序
@@ -146,10 +146,10 @@ print(list1)          #[3,2,1,5]  #原串列不變
 EXERCISE:
 grades = []
 while True:
-    grade = input("請輸入學生的成績:")
-    if grade == "":
-        break
-    grades.append(int(grade))
+	grade = input("請輸入學生的成績:")
+	if grade == "":
+		break
+	grades.append(int(grade))
 grades2 = sorted(grades,reverse=False)
 print(grades2)
 
@@ -163,55 +163,55 @@ EXERCISE:
 numbers = [21,4,35,1,8,7,3,6,9]
 odd_numbers = []
 for i in numbers:
-    if i % 2 != 0:
-        odd_numbers.append(i)
+	if i % 2 != 0:
+		odd_numbers.append(i)
 print(odd_numbers)
 
 fruits = ["香蕉","蘋果","橘子","鳳梨","西瓜"]
 while True:
-    fruit = input("請輸入喜歡的水果(Enter 結束):")        
-    m = fruits.count(fruit)
-    if fruit == "":
-        break
-    elif m == 0:
-        print("%s不在串列中!"%(str(fruit)))
-    elif m != 0:
-        n = fruits.index(fruit)
-        # print("%s在串列中的第%d項"%(str(fruit),n+1))
-        print("在串列中的第"+ str(n+1) +"項")
+	fruit = input("請輸入喜歡的水果(Enter 結束):")        
+	m = fruits.count(fruit)
+	if fruit == "":
+		break
+	elif m == 0:
+		print("%s不在串列中!"%(str(fruit)))
+	elif m != 0:
+		n = fruits.index(fruit)
+		# print("%s在串列中的第%d項"%(str(fruit),n+1))
+		print("在串列中的第"+ str(n+1) +"項")
 
 grades = []
 total = 0
 average = 0
 i = 1
 while (i <= 5):
-    grade = int(input("請輸入第%d同學的成績:"%(i)))
-    i += 1 
-    grades.append(grade)
+	grade = int(input("請輸入第%d同學的成績:"%(i)))
+	i += 1 
+	grades.append(grade)
 for i in grades:
-    total += i
-    average = total / len(grades)
+	total += i
+	average = total / len(grades)
 print("本班總成績:%d分，平均成績:%.2f分"%(total,average))
 
 numbers = [1,2,3,4,2,7,3,2,3]
 for i in numbers:
-    n = numbers.count(i)
-    if n > 1:
-        numbers.remove(i)
+	n = numbers.count(i)
+	if n > 1:
+		numbers.remove(i)
 print(numbers)
 
 grades = []
 names = []
 while True:
-    for i in range(1,4):
-        name = str(input("請輸入第%d位同學的姓名:"%(i)))
-        grade = int(input("請輸入第%d位同學的成績:"%(i)))
-        grades.append(grade)
-        names.append(name)
-    if grades[0] > grades[1] and grades[0] > grades[2]:
-        print("姓名:%s  成績:%d"%(names[0],grades[0]))
-    elif grades[1] > grades[0] and grades[1] > grades[2]:
-        print("姓名:%s  成績:%d"%(names[1],grades[1]))
-    elif grades[2] > grades[0] and grades[2] > grades[1]:
-        print("姓名:%s  成績:%d"%(names[2],grades[2]))
+	for i in range(1,4):
+		name = str(input("請輸入第%d位同學的姓名:"%(i)))
+		grade = int(input("請輸入第%d位同學的成績:"%(i)))
+		grades.append(grade)
+		names.append(name)
+	if grades[0] > grades[1] and grades[0] > grades[2]:
+		print("姓名:%s  成績:%d"%(names[0],grades[0]))
+	elif grades[1] > grades[0] and grades[1] > grades[2]:
+		print("姓名:%s  成績:%d"%(names[1],grades[1]))
+	elif grades[2] > grades[0] and grades[2] > grades[1]:
+		print("姓名:%s  成績:%d"%(names[2],grades[2]))
 """
