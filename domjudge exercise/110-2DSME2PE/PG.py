@@ -16,10 +16,11 @@ while True:
                     for k in range(4):
                         temp[i][k],temp[i+1][k]=temp[i+1][k],temp[i][k]
                     if i!=0:
-                        if temp[i][0]==temp[i-1][0] and temp[i][1]==temp[i-1][1]:
-                            if temp[i][2]<=temp[i-1][2]:
-                                for k in range(4):
-                                    temp[i][k],temp[i-1][k]=temp[i-1][k],temp[i][k]
+                        for j in range(i,0,-1):
+                            if temp[i][0]==temp[i-1][0] and temp[i][1]==temp[i-1][1]:
+                                if temp[i][2]<=temp[i-1][2]:
+                                    for k in range(4):
+                                        temp[i][k],temp[i-1][k]=temp[i-1][k],temp[i][k]
         for i in range(N):
             if i == N-1:
                 print(temp[i][3])
