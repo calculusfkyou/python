@@ -5,8 +5,9 @@ while True:
         temp=[]
         temp2=[]
         ans=[]
-        for s in range(len(num)):   #temp2==num
-                temp2.append(num[s]) 
+        temp2=num[:]#temp2==num
+        #for s in range(len(num)):   
+                #temp2.append(num[s]) 
 
         for i in range(1,len(round)):
             j=round[i]
@@ -21,10 +22,10 @@ while True:
             for z in range(len(temp2)):
                 ans.append(temp2[0])
                 temp2.pop(0)
-            for s in range(len(ans)):
+            for s in range(len(ans)):#temp2=ans[:]
                 temp2.append(ans[s])
-            for x in range(len(num)):
-                ans.pop(0)
+            for x in range(len(num)):#ans.clear()
+                ans.pop(0)    
         for a in range(len(temp2)-1):
             print(temp2[a],end=" ")
         print(temp2[-1])

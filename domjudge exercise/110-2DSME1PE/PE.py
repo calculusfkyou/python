@@ -15,33 +15,37 @@ while True:
         # expression="(3+4)*5/(2-3)"
         # expression="(2+4)*(3-1)"
         
-        check=[]
-        expression=list(expression)
+        check=""
+        # for char in range(len(expression)):
+        #     if expression[char].isdigit():
+        #         output.append(expression[char])
+        #     elif expression[char] == '(':
+        #         stack.append(expression[char])
+        #     elif expression[char] == ')':
+        #         while stack and stack[-1] != '(':
+        #             output.append(stack.pop())
+        #         stack.pop() # remove '('
+        #     else:
+        #         while stack and stack[-1] != '(' and precedence[stack[-1]] >= precedence[expression[char]]:
+        #             output.append(stack.pop())
+        #         stack.append(expression[char])
         for i in range(len(expression)):
-            if i<len(expression)-1 and digit(expression[i]):
-                check.append(expression[i])
-                if i<len(expression)-2 and digit(expression[i+1]) :
-                    check.append(expression[i+1])
-                    for k in range(1,len(check)):
-                        check[0]=check[0]+check[k]
-                    expression[i]=check[0]
-                    expression.pop(i+1)
-                check.clear()
-
-        for char in range(len(expression)):
-            if expression[char].isdigit():
-                output.append(expression[char])
-            elif expression[char] == '(':
-                stack.append(expression[char])
-            elif expression[char] == ')':
-                while stack and stack[-1] != '(':
-                    output.append(stack.pop())
-                stack.pop() # remove '('
+            if expression[i].isdigit():
+                check=check+expression[i]
+                if i == len(expression)-1 or not expression[i+1].isdigit():
+                    output.append(check)
+                    check = ""
             else:
-                while stack and stack[-1] != '(' and precedence[stack[-1]] >= precedence[expression[char]]:
-                    output.append(stack.pop())
-                stack.append(expression[char])
-
+                if expression[i] in "+-*/":
+                    while len(stack)>0 and stack[-1]!='(' and precedence[expression[i]]<= precedence[stack[-1]]:
+                        output.append(stack.pop())
+                    stack.append(expression[i])
+                elif expression[i]=="(":
+                    stack.append(expression[i])
+                elif expression[i]==")":
+                    while stack[-1]!="(":
+                        output.append(stack.pop())
+                    stack.pop()
         while stack:
             output.append(stack.pop())
 
