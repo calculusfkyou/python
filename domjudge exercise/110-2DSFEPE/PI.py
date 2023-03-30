@@ -31,16 +31,15 @@
 def binarysearch(key,left,right,count):
     if left<=right:
         mid=(left+right)//2
-        # print(mid)
         if key==mid:
             #count+=1
             return count
         elif key<mid:
             #count+=1
-            return binarysearch(key,left,mid-1,count+1)
+            return binarysearch(key,left,mid,count+1)
         elif key>mid:
             #count+=1
-            return binarysearch(key,mid+1,right,count+1)
+            return binarysearch(key,mid,right,count+1)
     else:
         return -1
         
@@ -54,6 +53,6 @@ while True:
             # temp=[]
             # for i in range(M,N+1):
             #     temp.append(i)
-            print(binarysearch(K,0,N-M,1))
+            print(binarysearch(K,M,N,1))
     except EOFError:
         break
