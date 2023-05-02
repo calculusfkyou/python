@@ -28,6 +28,8 @@
 #     except EOFError:
 #         break
 
+#mine
+#fail
 def binarysearch(key,left,right,count):
     if left<=right:
         mid=(left+right)//2
@@ -55,4 +57,33 @@ while True:
             #     temp.append(i)
             print(binarysearch(K,M,N,1))
     except EOFError:
+        break
+
+#GPT
+#correct
+while True:
+    try:
+        # 讀取輸入
+        m, n = map(int, input().split())
+        k = int(input())
+
+        # 初始化猜測範圍和猜測次數
+        low, high = m, n
+        count = 0
+
+        # 開始猜測
+        while low <= high:
+            mid = (low + high) // 2
+            count += 1
+            if mid == k:
+                print(count)
+                break
+            elif mid < k:
+                low = mid + 1
+            else:
+                high = mid - 1
+        else:
+            # 如果猜測範圍內找不到密碼，輸出-1
+            print(-1)
+    except:
         break
