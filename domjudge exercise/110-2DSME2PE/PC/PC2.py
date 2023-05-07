@@ -14,7 +14,7 @@ def insertsort(subnum,n):
     print(subnum[-1])
 
 def bbsort(subnum,n):
-    for j in range(len(subnum)-1,0,-1):#從左邊把大的推過去
+    for j in range(len(subnum)-1,0,-1):#從右邊把大的推過去
         if subnum[j]>subnum[j-1]:
             subnum[j],subnum[j-1]=subnum[j-1],subnum[j]
     for i in range(len(subnum)-1):
