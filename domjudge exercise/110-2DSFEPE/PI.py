@@ -30,18 +30,26 @@
 
 #mine
 #fail
-def binarysearch(key,left,right,count):
+def binarysearch(key,left,right,count,t,temp):
     if left<=right:
-        mid=(left+right)//2
-        if key==mid:
-            #count+=1
+        ll=temp.index(t[0])
+        rr=temp.index(t[-1])
+        mid=(ll+rr)//2
+        if key==temp[mid]:
+            # count+=1
             return count
-        elif key<mid:
-            #count+=1
-            return binarysearch(key,left,mid,count+1)
-        elif key>mid:
-            #count+=1
-            return binarysearch(key,mid,right,count+1)
+        elif key<temp[mid]:
+            t=temp[:mid-1]
+            count+=1
+            left=temp.index(t[0])
+            right=temp.index(t[-1])
+            return binarysearch(key,left,right,count,t,temp)
+        elif key>temp[mid]:
+            t=temp[mid+1:]
+            count+=1
+            left=temp.index(t[0])
+            right=temp.index(t[-1])
+            return binarysearch(key,left,right,count,t,temp)
     else:
         return -1
         
@@ -52,10 +60,10 @@ while True:
         if K<M or K>N:
             print(-1)
         else:
-            # temp=[]
-            # for i in range(M,N+1):
-            #     temp.append(i)
-            print(binarysearch(K,M,N,1))
+            temp=[]
+            for i in range(M,N+1):
+                temp.append(i)
+            print(binarysearch(K,0,N-1,1,temp,temp))
     except EOFError:
         break
 
