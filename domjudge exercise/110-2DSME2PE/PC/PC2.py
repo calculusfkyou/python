@@ -1,5 +1,5 @@
 def insertsort(subnum,n):
-    if n==1:
+    if n==1:#第一次不變
         for i in range(len(subnum)-1):
             print(subnum[i],end=" ")
         print(subnum[-1])
