@@ -1,34 +1,77 @@
-def h1(A):
-    # 計算 A1 ⊕ A2
-    A1 = bin(A)[2:]
-    A2 = A1[-len(A1)//2:]
-    A1 = A1[:len(A1)//2]
-    A1_xor_A2 = int(A1, 2) ^ int(A2, 2)
-
-    # 取中間 q 個位元
-    q = len(bin(A1_xor_A2)[2:]) // 2
-    middle_bits = (A1_xor_A2 >> (len(bin(A1_xor_A2)[2:]) - q)) & ((1 << q) - 1)
-
-    return middle_bits
-
-def h2(A):
-    # 計算 B1 ⊕ B3 ⊕ B2
-    B1 = bin(A)[2:]
-    B2 = B1[-len(B1)//3:]
-    B3 = B1[-2*len(B1)//3:-len(B1)//3]
-    B1 = B1[:2*len(B1)//3]
-    B1_xor_B3_xor_B2 = int(B1, 2) ^ int(B3, 2) ^ int(B2, 2)
-
-    # 取中間 q 個位元
-    q = len(bin(B1_xor_B3_xor_B2)[2:]) // 2
-    middle_bits = (B1_xor_B3_xor_B2 >> (len(bin(B1_xor_B3_xor_B2)[2:]) - q)) & ((1 << q) - 1)
-
-    return middle_bits
-
+def BtoD(num):
+    temp=0
+    bs=0
+    while num>0:
+        temp+=(num%10)*2**bs
+        bs+=1
+        num=num//10
+    return temp
 while True:
     try:
-        A = int(input())
-        print(h1(A), h2(A))
-    except:
+        A=int(input())
+        ba,bs,t=0,0,0
+        while A>0:
+            ba+=(A%2)*10**bs
+            bs+=1
+            t+=1
+            A=A//2
+        # print(ba)
+        Bt=t//3
+        subt=t//3#for B1 B2 B3
+        subba=ba#for B1 B2 B3
+        a1,a2,bs=0,0,0
+        if t%2==1:
+            tt=t//2
+            t=tt+1
+            a1t,a2tt=t,tt
+            while tt>1:#a2
+                a2+=(ba%10)*10**bs
+                tt=tt-1
+                bs+=1
+                ba=ba//10
+            bs=0
+            while t>0:#a1
+                a1+=(ba%10)*10**bs
+                t=t-1
+                bs+=1
+                ba=ba//10
+        else:
+            tt=t//2
+            t=tt
+            a1t,a2tt=t,tt
+            while tt>0:#a2
+                a2+=(ba%10)*10**bs
+                tt=tt-1
+                bs+=1
+                ba=ba//10
+            bs=0
+            while t>0:#a1
+                a1+=(ba%10)*10**bs
+                t=t-1
+                bs+=1
+                ba=ba//10
+        print(a1,a2)
+        a2=a2%(10**(a2tt-2))//100
+        a1=a1%(10**(a1t-2))//100
+        print(a1,a2)
+        a2,a1=BtoD(a2),BtoD(a1)
+        print(a1^a2,end=" ")
+        temp,bs,b=0,0,[]
+        while subba>0:
+            for i in range(subt):
+                temp+=(subba%10)*10**bs
+                bs+=1
+                subba=subba//10
+            b.append(BtoD(temp))
+            temp=0
+            bs=0
+        print((b[0]^b[2])^b[1])
+#10611128=10100001 11101001 10111000
+#a1^a2=00 11101001 10 =233 前後兩個不要
+#(b1^b3)^b2=11110000=240
+#10811133=101001001111 011011111101
+#a1^a2=11 00101100 10 =44
+#10811217=101001001111
+#a1^a2=   011101010001
+    except EOFError:
         break
-
