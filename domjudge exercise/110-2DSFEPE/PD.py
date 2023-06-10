@@ -12,20 +12,20 @@ while True:
             if tree[i]!="0":
                 temp=tree.index(tree[i])
                 No.append(temp+1)#root為編號1
-        newtree=[[0],[0]]
+        newtree=[[0],[0]]#newtree的元素的編號等於index值
         path=1
-        for i in range(1,len(tree)):
+        for i in range(1,len(tree)):#路徑0或1
             if path==1:
                 path=0
             else:
                 path=1
             newtree.append([tree[i],path])
-        alpha=[]
-        for i in range(len(No)):#每個字母的數字
+        alpha=[]#只剩字母和編號
+        for i in range(len(No)):#每個字母的編號
             temp=[]
             temp.append(newtree[No[i]][0])
             temp.append(newtree[No[i]][1])
-            subi=No[i]//2
+            subi=No[i]//2 #子節點編號除2取下界等於父節點編號
             while subi>1:
                 temp.append(newtree[subi][1])
                 subi=subi//2
