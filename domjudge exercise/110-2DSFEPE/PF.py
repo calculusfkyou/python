@@ -14,7 +14,8 @@ while True:
             level.pop(0)
         difference=[]#[玩家1,玩家2,差]
         for i in range(1,len(level)):
-            difference.append([i-1,i,level[i][0]-level[i-1][0]])
+            for j in range(i,len(level)):
+                difference.append([i-1,j,level[j][0]-level[i-1][0]])
         difference.sort(key=lambda difference:difference[2])
         sum=0
         for j in range(len(difference)):
@@ -28,7 +29,9 @@ while True:
                     level[check][1]=1
                     level[check2][2]=1
                     sum+=level[check2][0]-level[check][0]
-                K-=1
+                    K-=1
+            else:
+                break
         print(sum)
     except EOFError:
         break
