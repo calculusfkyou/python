@@ -13,18 +13,18 @@
 def build_tree(postorder, inorder):
     if not postorder:
         return ''
-    root = postorder[-1]
-    idx = inorder.index(root)
-    left = build_tree(postorder[:idx], inorder[:idx])
-    right = build_tree(postorder[idx:-1], inorder[idx + 1:])
-    return root + left + right
+    root=postorder[-1]
+    idx=inorder.index(root)
+    left=build_tree(postorder[:idx], inorder[:idx])
+    right=build_tree(postorder[idx:-1], inorder[idx+1:])
+    return root+left+right
 
 while True:
     try:
-        n = int(input())
+        n= int(input())
         for i in range(n):
-            m, postorder, inorder = input().split()
-            preorder = build_tree(postorder, inorder)
+            m,postorder,inorder=input().split()
+            preorder=build_tree(postorder,inorder)
             print(preorder)
     except EOFError:
         break
