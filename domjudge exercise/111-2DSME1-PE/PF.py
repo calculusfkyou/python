@@ -25,43 +25,46 @@ while True:
                         break
 
                     temp2=n%1000
-                    if n<1000 and n!=0:
-                            temp.append(n%100)
-                            temp.append("hundred")
-                            if n<100:
-                                temp.append(n//100)
-                            break
                     if temp2!=0:
                         temp.append("thousand")
-                        temp.append(temp2)
+                        if temp2<100:
+                            temp.append(temp2)
+                            break
+                        else:
+                            if temp2%100!=0:
+                                temp.append(temp2%100)
+                            temp.append("hundred")
+                            temp.append(temp2//100)
                     n=n//1000
                     if n==0:
                         break
 
                     temp2=n%1000
-                    if n<1000 and n!=0:
-                            temp.append(n%100)
-                            temp.append("hundred")
-                            if n<100:
-                                temp.append(n//100)
-                            break
                     if temp2!=0:
                         temp.append("million")
-                        temp.append(temp2)
+                        if temp2<100:
+                            temp.append(temp2)
+                            break
+                        else:
+                            if temp2%100!=0:
+                                temp.append(temp2%100)
+                            temp.append("hundred")
+                            temp.append(temp2//100)
                     n=n//1000
                     if n==0:
                         break
 
                     temp2=n%1000
-                    if n<1000 and n!=0:
-                            temp.append(n%100)
-                            temp.append("hundred")
-                            if n<100:
-                                temp.append(n//100)
-                            break
                     if temp2!=0:
                         temp.append("billion")
-                        temp.append(temp2)
+                        if temp2<100:
+                            temp.append(temp2)
+                            break
+                        else:
+                            if temp2%100!=0:
+                                temp.append(temp2%100)
+                            temp.append("hundred")
+                            temp.append(temp2//100)
                     n=n//1000
                     if n==0:
                         break
