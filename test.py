@@ -70,7 +70,7 @@ while True:
         print(shortest_path-2)
     except EOFError:
         break
-#7 8
+# 7 8
 # 1 2
 # 1 3
 # 2 4
@@ -78,4 +78,4 @@ while True:
 # 4 5
 # 4 6
 # 5 7
-# 6 7
+# 6 7  
