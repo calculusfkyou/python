@@ -41,7 +41,7 @@ def main():
                 t=m//temp[i]
                 if e==(t+temp[i])*2:
                     ans.append([t+2,temp[i]+2])
-            print(ans)
+            # print(ans)
             if len(ans)==0:
                 print('impossible')
             else:
