@@ -4,6 +4,14 @@ def find_power_of_two(num):
         num=num/2
         power+=1
     return power
+def copy(t,field):
+    n1,n2=0,0
+    for j in range(3):
+        for i in range(len(field)):
+            n1=field[i][0]
+            n2=field[i][1]
+            t.append([n1,n2])
+    return t
 while True:
     try:
         n,k=map(int,input().split())
@@ -29,8 +37,9 @@ while True:
                 redis=dis[:]
                 redis.reverse()
                 dis+=redis
+            t=[]
             for l in range(find_power_of_two(n)-1):
-                t=field[:]*3
+                t=copy(t,field)
                 for i in range(4):
                     if i==0:
                         for j in range(0,(subn//2)**2):
