@@ -4,87 +4,96 @@ def find_power_of_two(num):
         num=num/2
         power+=1
     return power
-def copyfield(t,field):
-    n1,n2=0,0
-    for j in range(3):
-        for i in range(len(field)):
-            n1=field[i][0]
-            n2=field[i][1]
-            t.append([n1,n2])
-    return t
-def copy(temp2,t,cp):
-    n1,n2=0,0
-    for i in range(cp):
-        n1=t[i][0]
-        n2=t[i][1]
-        temp2.append([n1,n2])
-    temp2.reverse()
-    return temp2
 while True:
     try:
         n,k=map(int,input().split())
-        field=[[1,1],[1,2],[2,2],[2,1]]
+        field=[]
         if n==1:
-            print(*field[k-1])
+            if k==1:
+                print("1 1")
+            elif k==2:
+                print("1 2")
+            elif k==3:
+                print("2 2")
+            elif k==4:
+                print("2 1")
         else:
-            subn=4  #處理長度
-            tempn=4 #處理dis
-            p=subn//2   
-            cp=subn*subn//4
-            t=[]
-            for l in range(find_power_of_two(n)-1):
-                dis=[]
-                count=tempn-1
-                disp=tempn//4
-                # print(count)
-                # print("--------------")
-                while count!=3:
-                    for i in range(disp):
-                        dis.append(count)
-                    count-=2
-                dis.append(3)
-                dis.append(1)
-                dis.append(1)
-                dis.append(3)
-                if n>4:
-                    redis=dis[:]
-                    redis.reverse()
-                    dis+=redis
-                # print(dis)
-                # print("--------------")
-                t=copyfield(t,field)
-                for i in range(4):
-                    if i==0:
-                        for j in range(0,(subn//2)**2):
-                            t[j].reverse()
-                    elif i==1:
-                        for j in range((subn//2)**2,(subn//2)**2*2): 
-                            t[j][1]+=p
-                    elif i==2:
-                        for j in range((subn//2)**2*2,(subn//2)**2*3):
-                            t[j][0]+=p
-                            t[j][1]+=p
-                    else:
-                        temp2=[]
-                        temp2=copy(temp2,t,cp)
-                        print(dis)
-                        print("--------------")
-                        print(temp2)
-                        print("--------------")
-                        for j in range(len(temp2)):
-                            temp2[j][0]+=dis[j]
-                            n1=temp2[j][0]
-                            n2=temp2[j][1]
-                            t.append([n1,n2])
-                field.clear()
-                field=copyfield(field,t)
-                subn*=2
-                tempn*=2
-                p=subn//2
-                cp=subn*subn//4
-                print(t)
-                print("--------------")
-            # print(t)
-            print(*field[k-1])
+            if k==1:
+                print("1 1")
+            else:
+                quadrant=1    #左下1 左上2 右上3 右下4
+                subn,subk=n,k
+                range=[0,0,0,0] #[x1,x2,y1,y2]
+                check=0
+                while subn!=1:
+                    temp=[]
+                    if subk<=(subn**2)//4:
+                        if check:
+                            range[1]-=subn//2
+                            range[3]-=subn//2
+                            range[0],range[1],range[2],range[3]=range[2],range[3],range[0],range[1]
+                        else:
+                            range=[1,subn//2,1,subn//2]
+                            check=1
+                        # if subk>((subn**2)//16) and subk<((subn**2)//16*2+1):
+                        #     quadrant=2
+                        # elif subk>((subn**2)//16*3) and subk<((subn**2)//4+1):
+                        #     quadrant=4
+                        # else:
+                        quadrant=1
+                    elif subk>(subn**2)//4 and subk<=(subn**2)//4*2:
+                        if check:
+                            range[1]-=subn//2
+                            range[2]+=subn//2
+                        else:
+                            range=[1,subn//2,subn//2+1,subn]
+                            check=1
+                        subk=subk-(subn**2)//4
+                        quadrant=2
+                    elif subk>(subn**2)//4*2 and subk<=(subn**2)//4*3:
+                        if check:
+                            range[0]+=subn//2
+                            range[2]+=subn//2
+                        else:
+                            range=[subn//2+1,subn,subn//2+1,subn]
+                            check=1
+                        subk=subk-(subn**2)//4*2
+                        quadrant=3
+                    elif subk>(subn**2)//4*3 and subk<=(subn**2):
+                        if check:
+                            range[0]+=subn//2
+                            range[3]-=subn//2
+                            tt=subn
+                            for i in range(subn//2):
+                                temp.append(tt)
+                                temp.append(tt-2)
+                                tt-=6
+                            if subk not in temp:
+                                range[0],range[1],range[2],range[3]=range[2],range[3],range[0],range[1]
+                        else:
+                            range=[subn//2+1,subn,1,subn//2]
+                            check=1
+                        subk=subk-(subn**2)//4*3
+                        # if subk>((subn**2)//4*3) and subk<((subn**2)//16*13+1):
+                        #     quadrant=1
+                        # elif subk>((subn**2)//16*14) and subk<((subn**2)+1):
+                        #     quadrant=3
+                        # else:
+                        quadrant=4
+                    subn=subn//2
+                    # print(quadrant)
+                    # if quadrant==1:
+                    #     if subk==2:
+                    #         subk=4
+                    #     elif subk==4:
+                    #         subk=2
+                    # elif quadrant==4:
+                    #     if subk==1:
+                    #         subk=4
+                    #     elif subk==3:
+                    #         subk=2
+                    print(range)
+                    # print(subk)
+                # print(range[0],range[2])
     except EOFError:
         break
