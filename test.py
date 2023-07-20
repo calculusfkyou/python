@@ -10,6 +10,7 @@
 # perimeter = 2 * math.pi * radius
 # print('Area = %.2f' %(area))
 # print('Perimeter = %.2f'%(perimeter))
+
 # def build_tree(postorder, inorder):
 #     if not postorder:
 #         return ''
@@ -18,7 +19,6 @@
 #     left=build_tree(postorder[:idx], inorder[:idx])
 #     right=build_tree(postorder[idx:-1], inorder[idx+1:])
 #     return root+left+right
-
 # while True:
 #     try:
 #         n= int(input())
