@@ -94,7 +94,6 @@
 #             if (i >> j) & 1:
 #                 factor *= factors[j]
 #         all_factors.add(factor)
-    
 #     return sorted(all_factors)
 
 from math import *
