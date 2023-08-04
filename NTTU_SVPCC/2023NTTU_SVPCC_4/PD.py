@@ -1,16 +1,13 @@
+import sys
 while True:
-    try:
-        text=input()
-        if text[-1]=="?":
-            print("Quack!",flush=True)
-        elif text[-1]==".":
-            print("*Nod*",flush=True)
-        elif text=="I quacked the code!":
-            break
-        import sys
-        sys.stdout.flush()
-    except:
+    text=input()
+    if text[-1]=="?":
+        print("Quack!",flush=True)
+    elif text[-1]==".":
+        print("*Nod*",flush=True)
+    elif text=="I quacked the code!":
         break
+    sys.stdout.flush()
 """
 import sys
 
