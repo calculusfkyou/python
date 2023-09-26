@@ -97,11 +97,18 @@
 #     return sorted(all_factors)
 
 from math import *
-print(sqrt(64))
+if __name__ == "__main__":
+    print(sqrt(64))
 
-s="dog"
-l=list(s)
-c=''.join(l)
-a="dog cat"
-ll=a.split()
+    s="dog"
+    print(s[::-1])
+    l=list(s)
+    print(l)
+    c=''.join(l)
+    print(c)
+    
+    a="dog cat banana"
+    ll=a.split()
+    print(ll)
+    print(a.split(maxsplit=1))
 #test
