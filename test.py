@@ -6,24 +6,6 @@
 # print('Area = %.2f' %(area))
 # print('Perimeter = %.2f'%(perimeter))
 
-# def build_tree(postorder, inorder):
-#     if not postorder:
-#         return ''
-#     root=postorder[-1]
-#     idx=inorder.index(root)
-#     left=build_tree(postorder[:idx], inorder[:idx])
-#     right=build_tree(postorder[idx:-1], inorder[idx+1:])
-#     return root+left+right
-# while True:
-#     try:
-#         n= int(input())
-#         for i in range(n):
-#             m,postorder,inorder=input().split()
-#             preorder=build_tree(postorder,inorder)
-#             print(preorder)
-#     except EOFError:
-#         break
-
 # from collections import deque
 # def bfs_shortest_path(graph, start, end):
 #     visited = set()
@@ -38,7 +20,6 @@
 #             neighbors = graph[vertex]
 #             for neighbor in neighbors:
 #                 queue.append((neighbor, path + [neighbor]))  # 將新頂點加入路徑
-
 #     return None  # 若沒有找到路徑，返回None
 # while True:
 #     try:
@@ -75,40 +56,8 @@
 # 5 7
 # 6 7  
 
-# def get_factors(n):
-#     factors = []
-#     # 質因數分解
-#     for i in range(2, int(n**0.5) + 1):
-#         while n % i == 0:
-#             factors.append(i)
-#             n //= i
-#     if n > 1:
-#         factors.append(n)
-#     print(factors)
-#     # 求得所有因數
-#     num_factors = len(factors)
-#     all_factors = set()
-#     for i in range(1 << num_factors):
-#         factor = 1
-#         for j in range(num_factors):
-#             if (i >> j) & 1:
-#                 factor *= factors[j]
-#         all_factors.add(factor)
-#     return sorted(all_factors)
+
 
 from math import *
 if __name__ == "__main__":
     print(sqrt(64))
-
-    s="dog"
-    print(s[::-1])
-    l=list(s)
-    print(l)
-    c=''.join(l)
-    print(c)
-    
-    a="dog cat banana"
-    ll=a.split()
-    print(ll)
-    print(a.split(maxsplit=1))
-#test
