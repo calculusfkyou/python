@@ -16,7 +16,9 @@ s, ss = "123456", [1, 2, 3, 4, 5, 6]
 print(r.choice(s), r.choice(ss))
 
 # random.sample(population, k) 從population中隨機選擇k個獨立的元素，並返回一個包含這些元素的列表。
-print(r.sample(s, 3), r.sample(ss, 3))
+print(r.sample(s, 3))
+print(r.sample(ss, 3))
+print(r.sample(range(1,50),7))
 
 # random.randrange ([start,] stop [,step]) 返回一個位於start（包含）和stop（不包含）之間，且以step為步長的隨機整數。 (step預設為1)
 print(r.randrange(100, 1000, 2))
