@@ -8,7 +8,7 @@ print(os.path.basename("os_path.py"))
 print(os.path.basename("python_module"))
 
 # os.path.exists(path)： 檢查路徑 path 所指向的檔案或目錄是否存在，如果存在則返回 True，否則返回 False。
-print(os.path.exists("../test.py"))
+print(os.path.exists("../test.pyi"))
 print(os.path.exists("../NTTU_SVPCC"))
 
 # os.path.getsize(path)： 返回指定檔案的大小（位元組數）。
